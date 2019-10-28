@@ -1,0 +1,30 @@
+#crosshairID {
+  position: fixed;
+  top: 18px;
+  left: 70px;
+  z-index: 10001; 
+  /* z-index has to be high because map controls have z index of 1000 */
+  background-color: white;
+}
+
+#coordsID {
+  position: fixed;
+  top: 45px;
+  left: 70px;
+  z-index: 10001;
+  background-color: white;
+}
+
+
+
+#mapid {
+	position: static;
+	height: 98vh; 
+	width: 100%;
+}
+
+
+
+.leaflet-container.crosshair-cursor-enabled {
+  cursor: crosshair;
+}
