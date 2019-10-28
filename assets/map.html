@@ -6,7 +6,7 @@
 	<title>Map of Kilburn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<!-- Font Awesome -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
 	<!-- Leaflet files -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
 	   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -34,20 +34,18 @@
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
-                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="https://github.com/Turbo87/sidebar-v2" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
-            </ul>
-
-            <ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-            </ul>
+				<li><a href="javascript:zoomin()" role="tab"><i class="fas fa-plus"></i></a></li>
+                <li><a href="javascript:zoomout()" role="tab"><i class="fas fa-minus"></i></a></li>
+				<br><br><br>
+				<li><a href="#layertab" role="tab"><i class="fas fa-layer-group"></i></a></li>
+				<br><br><br>
+				<li><a href="#info" role="tab"><i class="fas fa-info-circle"></i></a></li>
+			</ul>
         </div>
 
         <!-- Tab panes -->
         <div class="sidebar-content">
-            <div class="sidebar-pane" id="home">
+            <div class="sidebar-pane" id="info">
                 <h1 class="sidebar-header">
                     Map of West Camden Wards 1912-2019
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
@@ -56,17 +54,24 @@
 				<p> Wassup </p>
             </div>
 
-            <div class="sidebar-pane" id="profile">
-                <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-            </div>
+            <div class="sidebar-pane" id="layertab">
+                <h1 class="sidebar-header">Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+				<br>
+				<button class="button" onclick="toggleHidden('Div1')"><p class="lorem">Layer 1</p></button>
+				<div id="Div1" style="display: none;">
+				<p>HI</p>
+				</div>
+				
+				<br><br>
+				<table width="100%">
+					<tbody><tr>
+						<td width="28%"><img src="img/net/satellite.png" id="pic6" onclick="changeLayer('satellite')" height="60px"><p class="alpha">&nbsp;&nbsp;&nbsp;&nbsp;satellite</p></td>
+						<td width="8%"></td>
+						<td width="28%"><img src="img/net/streets_alt.png" id="pic7" onclick="changeLayer('streets')" height="60px"><p class="alpha">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Streets</p></td>
+					</tr></tbody></table>
+			</div>
 
-            <div class="sidebar-pane" id="messages">
-                <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-            </div>
-
-            <div class="sidebar-pane" id="settings">
-                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
-            </div>
+            
         </div>
     </div>
 
@@ -97,7 +102,7 @@
 		detectRetina: true});
 		
 
-	var sattelite = L.tileLayer(mbUrl, {
+	var satellite = L.tileLayer(mbUrl, {
 		attribution: mbAttr,
 		accessToken: 'pk.eyJ1IjoidG9tcHlzciIsImEiOiJjazFndnplbjkwcmt3M2NxbHZ0OThicjdvIn0.PMGP9s0F7ldLt2HxTQDkSg',
 		maxZoom: 18,
@@ -110,19 +115,50 @@
 	var mymap = L.map('mapid', {
 			center: [51.539829, -0.195229],
 			zoom: 15,
-			layers: [streets]
+			layers: [streets],
+			zoomControl: false
 	});
 	
 	var baseMaps = {
 			"Default View": streets,
-			"Sattelite View": sattelite
+			"satellite View": satellite
 	};
 
 	// var layerControl = L.control.layers(baseMaps, null, {position: 'topleft'}).addTo(mymap);
 	</script>
 	<script>
-
-
+		// Zoom buttons
+		function zoomin(){
+			mymap.zoomIn(1)
+		}
+		function zoomout(){
+			mymap.zoomOut(1)
+		}
+		
+		// Button Show/Hide
+		function toggleHidden(divName) {
+			var x = document.getElementById(divName);
+			if (x.style.display === "none") {
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+		} 	
+		
+		//Changing Base Layers
+		function changeLayer(layerName){
+			switch(layerName){
+				case "satellite":
+				mymap.removeLayer(streets);
+				mymap.addLayer(satellite);
+				break;
+				
+				case "streets":
+				mymap.removeLayer(satellite);
+				mymap.addLayer(streets);
+			}
+		}
+			
  	<!-- mymap.setMaxBounds([ -->
 		<!-- [51.550552, -0.218611], -->
 		<!-- [51.530426, -0.177397] -->

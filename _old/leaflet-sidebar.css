@@ -6,9 +6,7 @@
   overflow: hidden;
   z-index: 2000; }
   .sidebar.collapsed {
-    width: 40px;
-	max-height: 260px;
-	min-height: 180px;	}
+    width: 40px; }
   @media (min-width: 768px) {
     .sidebar {
       top: 10px;
