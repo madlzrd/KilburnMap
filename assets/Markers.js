@@ -74,5 +74,6 @@ var overlayMaps = {
 	"Ward Boundaries<br>SW London Borough of Camden - 1955-1977": L1965
 };
 
-//L.control.layers(null, overlayMaps, {position: 'topleft'} ).addTo(mymap);
-layerControl.addOverlay(L1947, "<img src='images/icon2.png'>Ward Boundaries<br>SW Hampstead Met Borough - 1912-1955");
+/* L.control.layers(null, overlayMaps, {position: 'topleft'} ).addTo(mymap);
+layerControl.addOverlay(L1947, "<img src='images/icon2.png' align='top'>  Ward Boundaries<br>SW Hampstead Met Borough - 1912-1955");
+*/
