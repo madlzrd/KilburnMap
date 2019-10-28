@@ -87,42 +87,6 @@
 
 	</script>
 
-	<div id="crosshairID">
-		<input type="checkbox" id="crosshair-box" name="crossBOX" autocomplete="off">
-		<label for="crosshair-box">    Toggle Crosshairs . </label>
-	</div>
-
-	<script>
-		$('#crosshair-box').change(function(){
-		var c = this.checked ? true : false;
-		if (c === true) {
-		// enable crosshairs..
-		L.DomUtil.addClass(mymap._container, 'crosshair-cursor-enabled');
-	  } else {
-		// disable crosshairs..
-		L.DomUtil.removeClass(mymap._container, 'crosshair-cursor-enabled');
-	  }
-		});
-	</script>
-
-	<div id="coordsID">
-		<input type="checkbox" id="coords-box" name="coordsBOX" autocomplete="off">
-		<label for="coords-box">    Toggle Coordinates . </label>
-	</div>
-
-	<script>
-		$('#coords-box').change(function(){
-		var c = this.checked ? true : false;
-		if (c === true) {
-		// enable crosshairs..
-		mymap.on('click', onMapClick);
-	  } else {
-		// disable crosshairs..
-		mymap.off('click', onMapClick);
-	  }
-		});
-	</script>
-	
 	<script>
 		
     var drawnItems = L.featureGroup().addTo(mymap); 
