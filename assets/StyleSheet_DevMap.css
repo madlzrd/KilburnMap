@@ -12,3 +12,7 @@ html, body, #mapid {
 	height: 100%;
 	width: 100vw;
 }
+
+.leaflet-top.leaflet-right .leaftlet-control-layers:nth-child(3) .leaflet-control-layers-toggle {
+    background-image: "/images/icon.png";
+}
