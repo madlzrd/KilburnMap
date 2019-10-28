@@ -70,6 +70,7 @@ var L1947 = L.layerGroup([Kilburn1947, WE1947, Central1947, PrioryWard1947]);
 var L1965 = L.layerGroup([Kilburn1965, WE1965, Central1965]);
 
 var overlayMaps = {
+	"Borough Boundaries: "
     "Ward Boundaries - SW Hampstead Met Borough - 1912-1955": L1947,
 	"Ward Boundaries - SW London Borough of Camden - 1955-1977": L1965
 };
