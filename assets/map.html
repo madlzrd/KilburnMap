@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<!-- Leaflet files -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+	   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	   crossorigin=""/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.css"/>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+	   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+	   crossorigin=""></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.2/leaflet.draw.js"></script>
+
+	<!-- jquery and linking css -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="StyleSheet_DevMap.css" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+
+	<div id="mapid" <div> </div>
+
+	<script>
+	var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+				'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		mbToken = "pk.eyJ1IjoidG9tcHlzciIsImEiOiJjazFndnplbjkwcmt3M2NxbHZ0OThicjdvIn0.PMGP9s0F7ldLt2HxTQDkSg",
+		mbUrl = "https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
+
+
+	var streets = L.tileLayer(mbUrl, {
+		attribution: mbAttr,
+		accessToken: 'pk.eyJ1IjoidG9tcHlzciIsImEiOiJjazFndnplbjkwcmt3M2NxbHZ0OThicjdvIn0.PMGP9s0F7ldLt2HxTQDkSg',
+		maxZoom: 18,
+		tileSize: 512,
+		zoomOffset: -1,
+		id: 'streets-v11',	
+		minZoom: 14 });
+		
+
+	var sattelite = L.tileLayer(mbUrl, {
+		attribution: mbAttr,
+		accessToken: 'pk.eyJ1IjoidG9tcHlzciIsImEiOiJjazFndnplbjkwcmt3M2NxbHZ0OThicjdvIn0.PMGP9s0F7ldLt2HxTQDkSg',
+		maxZoom: 18,
+		tileSize: 512,
+		zoomOffset: -1,
+		id: 'satellite-streets-v9',	
+		minZoom: 14 });
+		
+	var mymap = L.map('mapid', {
+			center: [51.539829, -0.195229],
+			zoom: 15,
+			layers: [streets]
+	});
+	
+	var baseMaps = {
+			"Default View": streets,
+			"Sattelite View": sattelite
+	};
+
+	L.control.layers(baseMaps).addTo(mymap);
+	</script>
+	<script>
+
+
+ 	<!-- mymap.setMaxBounds([ -->
+		<!-- [51.550552, -0.218611], -->
+		<!-- [51.530426, -0.177397] -->
+		<!-- ]);  -->
+
+	var popup = L.popup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent("You clicked the map at " + e.latlng.toString())
+			.openOn(mymap);
+		console.log(e.latlng.toString());
+	}
+
+
+
+	</script>
+
+	
+	<script src="Markers.js"></script>
+
+	</body>
+</html>
