@@ -32,7 +32,10 @@
 				'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		mbToken = "pk.eyJ1IjoidG9tcHlzciIsImEiOiJjazFndnplbjkwcmt3M2NxbHZ0OThicjdvIn0.PMGP9s0F7ldLt2HxTQDkSg",
 		mbUrl = "https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
-
+		MINzoom = 14;
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+		MINzoom -= 4;
+		}
 
 	var streets = L.tileLayer(mbUrl, {
 		attribution: mbAttr,
