@@ -34,7 +34,7 @@
 		mbUrl = "https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}";
 		MINzoom = 14;
 		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-		MINzoom -= 4;
+		MINzoom -= 2;
 		console.log("mobile device");
 		}
 
