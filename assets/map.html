@@ -70,7 +70,7 @@
 			"Sattelite View": sattelite
 	};
 
-	L.control.layers(baseMaps).addTo(mymap);
+	var layerControl = L.control.layers(baseMaps, null, {position: 'topleft'}).addTo(mymap);
 	</script>
 	<script>
 
