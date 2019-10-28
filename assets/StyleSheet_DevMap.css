@@ -14,5 +14,5 @@ html, body, #mapid {
 }
 
 .leaflet-top.leaflet-right .leaftlet-control-layers:nth-child(3) .leaflet-control-layers-toggle {
-    background-image: "/images/icon.png";
+    background-image: url(images/icon.png);
 }
