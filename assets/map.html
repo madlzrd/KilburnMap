@@ -41,7 +41,8 @@
 		tileSize: 512,
 		zoomOffset: -1,
 		id: 'streets-v11',	
-		minZoom: 14 });
+		minZoom: 14,
+		detectRetina: true});
 		
 
 	var sattelite = L.tileLayer(mbUrl, {
@@ -51,7 +52,8 @@
 		tileSize: 512,
 		zoomOffset: -1,
 		id: 'satellite-streets-v9',	
-		minZoom: 14 });
+		minZoom: 14,
+		detectRetina: true});
 		
 	var mymap = L.map('mapid', {
 			center: [51.539829, -0.195229],
@@ -73,15 +75,6 @@
 		<!-- [51.550552, -0.218611], -->
 		<!-- [51.530426, -0.177397] -->
 		<!-- ]);  -->
-
-	var popup = L.popup();
-
-	function onMapClick(e) {
-		popup
-			.setLatLng(e.latlng)
-			.setContent("You clicked the map at " + e.latlng.toString())
-			.openOn(mymap);
-		console.log(e.latlng.toString());
 	}
 
 
