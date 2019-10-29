@@ -102,11 +102,12 @@
 		attribution: mbAttr,
 		accessToken: 'pk.eyJ1IjoidG9tcHlzciIsImEiOiJjazFndnplbjkwcmt3M2NxbHZ0OThicjdvIn0.PMGP9s0F7ldLt2HxTQDkSg',
 		maxZoom: 18,
-		tileSize: 1024,
-		zoomOffset: -2,
+		tileSize: 512,
+		zoomOffset: -1,
 		id: 'streets-v11',	
-		minZoom: MINzoom,
-		detectRetina: true});
+		minZoom: MINzoom
+		//detectRetina: true
+		});
 		
 
 	var satellite = L.tileLayer(mbUrl, {
@@ -116,8 +117,9 @@
 		tileSize: 512,
 		zoomOffset: -1,
 		id: 'satellite-streets-v9',	
-		minZoom: MINzoom,
-		detectRetina: true});
+		minZoom: MINzoom
+		//detectRetina: true
+		});
 		
 	var mymap = L.map('mapid', {
 			center: [51.539829, -0.195229],
