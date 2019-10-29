@@ -63,12 +63,19 @@
 				</div>
 				
 				<br><br>
-				<table width="100%">
-					<tbody><tr>
-						<td width="28%"><img src="img/net/satellite.png" id="pic6" onclick="changeLayer('satellite')" height="60px"><p class="alpha">&nbsp;&nbsp;&nbsp;&nbsp;satellite</p></td>
-						<td width="8%"></td>
-						<td width="28%"><img src="img/net/streets_alt.png" id="pic7" onclick="changeLayer('streets')" height="60px"><p class="alpha">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Streets</p></td>
-					</tr></tbody></table>
+				<table width="50%" align="center">
+					<tbody>
+					<tr>
+						<td width="40%"><img src="images/Sat.png" id="picSat" onclick="changeLayer('satellite')" height="60px"></td>
+						<td width="10%"></td>
+						<td width="40%"><img src="images/StreetAlt.png" id="picStreet" onclick="changeLayer('streets')" height="60px"></td>
+					</tr>
+					<tr>
+						<td style="vertical-align:top">Satellite View</td>
+						<td></td>
+						<td style="vertical-align:top">Street View</td>
+					</tr>
+					</tbody></table>
 			</div>
 
             
@@ -145,15 +152,22 @@
 			}
 		} 	
 		
+		//icon images
+		var imageSat = document.getElementById('picSat');
+		var imageStreet = document.getElementById('picStreet');
 		//Changing Base Layers
 		function changeLayer(layerName){
 			switch(layerName){
 				case "satellite":
+				imageSat.src = "images/SatAlt.png";
+				imageStreet.src = "images/Street.png";
 				mymap.removeLayer(streets);
 				mymap.addLayer(satellite);
 				break;
 				
 				case "streets":
+				imageStreet.src = "images/StreetAlt.png";
+				imageSat.src = "images/Sat.png";
 				mymap.removeLayer(satellite);
 				mymap.addLayer(streets);
 			}
