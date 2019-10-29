@@ -18,3 +18,10 @@ html, body, #mapid {
     background-image: url(images/icon.png);
 } */
 
+.button1{
+	background:none;
+	border:none;
+	margin:0;
+	padding:0;cursor:
+	pointer;
+}

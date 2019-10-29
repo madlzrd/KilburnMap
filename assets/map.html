@@ -57,18 +57,71 @@
             <div class="sidebar-pane" id="layertab">
                 <h1 class="sidebar-header">Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 				<br>
-				<button class="button" onclick="toggleHidden('Div1')"><p class="lorem">Layer 1</p></button>
+				<button class="button" onclick="toggleHidden('Div1')" style="width:100%; border-radius:8px;"><p class="lorem">Layer 1</p></button>
 				<div id="Div1" style="display: none;">
-				<p>HI</p>
+				<br>
+					<div id="Div2"><button class="button1"><i class="fas fa-plus"></i></button>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						<div style="display: none; margin-left:4em">
+						<p>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						</p>
+						</div>
+					</div>
+					
+					<div id="Div3"><button class="button1"><i class="fas fa-plus"></i></button>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						<div style="display: none; margin-left:4em">
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						</div>
+					</div>
+					
+					<div id="Div4"><button class="button1"><i class="fas fa-plus"></i></button>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						<div style="display: none; margin-left:4em">
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						</div>
+					</div>
+					
+					<div id="Div5"><button class="button1"><i class="fas fa-plus"></i></button>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						<div style="display: none; margin-left:4em">
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						</div>
+					</div>
+					
+					<div id="Div6"><button class="button1"><i class="fas fa-plus"></i></button>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						<div style="display: none; margin-left:4em">
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+						</div>
+					</div>
+					
 				</div>
-				
-				<br><br>
+				<br><br><br>
+				<hr>
+				<br>
 				<table width="50%" align="center">
 					<tbody>
 					<tr>
-						<td width="40%"><img src="images/Sat.png" id="picSat" onclick="changeLayer('satellite')" height="60px"></td>
+						<td width="40%"><img src="images/SatOff.png" id="picSat" onclick="changeLayer('satellite')" height="60px"></td>
 						<td width="10%"></td>
-						<td width="40%"><img src="images/StreetAlt.png" id="picStreet" onclick="changeLayer('streets')" height="60px"></td>
+						<td width="40%"><img src="images/StreetOn.png" id="picStreet" onclick="changeLayer('streets')" height="60px"></td>
 					</tr>
 					<tr>
 						<td style="vertical-align:top">Satellite View</td>
@@ -161,19 +214,29 @@
 		function changeLayer(layerName){
 			switch(layerName){
 				case "satellite":
-				imageSat.src = "images/SatAlt.png";
-				imageStreet.src = "images/Street.png";
+				imageSat.src = "images/SatOn.png";
+				imageStreet.src = "images/StreetOff.png";
 				mymap.removeLayer(streets);
 				mymap.addLayer(satellite);
 				break;
 				
 				case "streets":
-				imageStreet.src = "images/StreetAlt.png";
-				imageSat.src = "images/Sat.png";
+				imageStreet.src = "images/StreetOn.png";
+				imageSat.src = "images/SatOff.png";
 				mymap.removeLayer(satellite);
 				mymap.addLayer(streets);
 			}
 		}
+		
+		//Change + to - 
+		var i;
+		for (i = 2; i < 7; i++) {
+			$('#Div'+i.toString()+' button').click(function(){
+			$(this).next().next().next('div').slideToggle('500');
+			$(this).find('i').toggleClass('fa-plus fa-minus')
+			});
+		} 
+		
 			
  	<!-- mymap.setMaxBounds([ -->
 		<!-- [51.550552, -0.218611], -->
