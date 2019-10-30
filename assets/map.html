@@ -57,61 +57,70 @@
             <div class="sidebar-pane" id="layertab">
                 <h1 class="sidebar-header">Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 				<br>
-				<button class="button" onclick="toggleHidden('Div1')" style="width:100%; border-radius:8px;"><p class="lorem">Layer 1</p></button>
-				<div id="Div1" style="display: none;">
+				<button class="button" onclick="toggleHidden('Div1')" style="width:100%; border-radius:8px;"><p style="text-align: left; font-size: 1.1em">Wards of SW Camden 1912-present</p></button>
+				<div id="Div1" style="display: none;font-size: 1.25em">
 				<br>
 					<div id="Div2"><button class="button1"><i class="fas fa-plus"></i></button>
-					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike
 						<div style="display: none; margin-left:4em">
-						<p>
+							<input type="checkbox" checked="checked"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
-							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
-						</p>
+							<br>
 						</div>
 					</div>
 					
 					<div id="Div3"><button class="button1"><i class="fas fa-plus"></i></button>
-					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike
 						<div style="display: none; margin-left:4em">
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<br>
 						</div>
 					</div>
 					
 					<div id="Div4"><button class="button1"><i class="fas fa-plus"></i></button>
-					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike
 						<div style="display: none; margin-left:4em">
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<br>
 						</div>
 					</div>
 					
 					<div id="Div5"><button class="button1"><i class="fas fa-plus"></i></button>
-					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike
 						<div style="display: none; margin-left:4em">
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<br>
 						</div>
 					</div>
 					
 					<div id="Div6"><button class="button1"><i class="fas fa-plus"></i></button>
-					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike
 						<div style="display: none; margin-left:4em">
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
 							<input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
+							<br>
 						</div>
 					</div>
 					
+					<div id="Div7" style=""><i class="fa fa-plus"></i><div style="display:inline;margin-left:1em;"><i class="far fa-square"></i> Wards in 2019 Proposal</div>
+						<div style="display: none; margin-left:3em">
+							<i class="far fa-square"></i> Kilburn<br>
+							<i class="far fa-square"></i> Swiss Cottage<br>
+						</div>
+					</div>
 				</div>
 				<br><br><br>
 				<hr>
@@ -232,10 +241,15 @@
 		var i;
 		for (i = 2; i < 7; i++) {
 			$('#Div'+i.toString()+' button').click(function(){
-			$(this).next().next().next('div').slideToggle('500');
+			$(this).next().next('div').slideToggle('500');
 			$(this).find('i').toggleClass('fa-plus fa-minus')
 			});
 		} 
+		
+		//Test jquery
+		$('#Div7 i').click(function(){
+			$(this).nextUntil('i', '').next('div').slideToggle('500');
+			});
 		
 			
  	<!-- mymap.setMaxBounds([ -->
