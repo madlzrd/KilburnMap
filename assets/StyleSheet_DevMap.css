@@ -25,3 +25,7 @@ html, body, #mapid {
 	padding:0;cursor:
 	pointer;
 }
+
+.point{
+	cursor:pointer;
+}

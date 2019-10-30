@@ -58,7 +58,7 @@
                 <h1 class="sidebar-header">Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 				<br>
 				<button class="button" onclick="toggleHidden('Div1')" style="width:100%; border-radius:8px;"><p style="text-align: left; font-size: 1.1em">Wards of SW Camden 1912-present</p></button>
-				<div id="Div1" style="display: none;font-size: 1.25em">
+				<div id="Div1" style="display: none;font-size: 1.25em;cursor:'pointer';">
 				<br>
 					<div id="Div2"><button class="button1"><i class="fas fa-plus"></i></button>
 					<input type="checkbox" name="vehicle1" value="Bike"> I have a bike
@@ -115,10 +115,12 @@
 						</div>
 					</div>
 					
-					<div id="Div7" style=""><i class="fa fa-plus"></i><div style="display:inline;margin-left:1em;"><i class="far fa-square"></i> Wards in 2019 Proposal</div>
-						<div style="display: none; margin-left:3em">
-							<i class="far fa-square"></i> Kilburn<br>
-							<i class="far fa-square"></i> Swiss Cottage<br>
+					<div id="Div7" style="">
+						<i class="fa fa-plus point"></i><div class="point" style="display:inline;margin-left:1em;"><i class="far fa-square"></i> Wards in 2019 Proposal</div>
+						<div style="display:none; margin-left:3em">
+							<div id="Div7_1" class="point" style="display:inline"><i class="far fa-square"></i> Kilburn</div>
+							<br>
+							<div id="Div7_2" class="point" style="display:inline"><i class="far fa-square"></i> Swiss Cottage</div>
 						</div>
 					</div>
 				</div>
@@ -247,9 +249,22 @@
 		} 
 		
 		//Test jquery
-		$('#Div7 i').click(function(){
+		$('#Div7').children('i').click(function(){
 			$(this).nextUntil('i', '').next('div').slideToggle('500');
+			$(this).toggleClass('fa-plus fa-minus')
 			});
+		//jquery toggle tick
+		$('#Div7').children('div').first().click(function(){
+			var parent = $(this).children('i');
+			parent.toggleClass('fa-square fa-check-square');
+			var parClass = parent.attr('class');
+			$('#Div7').children('div').not($(this)).find('i').each(function(){
+					$(this).attr('class',parClass);
+				});
+			
+			
+			});
+		// jquery to test if children are checked
 		
 			
  	<!-- mymap.setMaxBounds([ -->
