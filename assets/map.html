@@ -123,6 +123,27 @@
 							<div id="Div7_2" class="point" style="display:inline"><i class="far fa-square"></i> Swiss Cottage</div>
 						</div>
 					</div>
+					
+					<div id="Div8">
+						<i class="fa fa-plus point"></i><div class="l3checkP" style="display:inline;margin-left:1em;"><i class="far fa-square"></i> Wards in 2019 Proposal</div>
+						<div style="display:none; margin-left:3em">
+							<div id="Div8_1" class="l4check" style="display:inline"><i class="far fa-square"></i> Kilburn</div>
+							<br>
+							<div id="Div8_2" class="l4check" style="display:inline"><i class="far fa-square"></i> Swiss Cottage</div>
+						</div>
+					</div>
+					
+					<div id="Div9">
+						<i class="fa fa-plus point"></i><div class="l3checkP" style="display:inline;margin-left:1em;"><i class="far fa-square"></i> Test</div>
+						<div style="display:none; margin-left:3em">
+							<div id="Div9_1" class="l4check" style="display:inline"><i class="far fa-square"></i> Test1</div>
+							<br>
+							<div id="Div9_2" class="l4check" style="display:inline"><i class="far fa-square"></i> Test2</div>
+							<br>
+							<div id="Div9_3" class="l4check" style="display:inline"><i class="far fa-square"></i> Test3</div>
+						</div>
+					</div>
+					
 				</div>
 				<br><br><br>
 				<hr>
@@ -264,7 +285,80 @@
 			
 			
 			});
-		// jquery to test if children are checked
+		// jquery using class
+			// changing icons
+		function updateIcons(){
+			$(".l3checkP").each(function(){
+			//CheckBox Behaviour
+				var e = $(this);
+				var f = e.siblings().find(".l4check");
+				e.removeClass("C2");
+				if((f.not(".C1").length > 0) && (f.filter(".C1").length > 0)){
+					e.removeClass("C0");
+					e.addClass("C2");
+				}else if(f.not(".C1").length == 0){
+					if (!e.hasClass("C0")){
+						e.toggleClass('C0').removeClass('C2')
+					}
+				}else if(f.filter(".C1").length == 0){
+					if (!e.hasClass("C0")){
+						e.removeClass('C0').removeClass('C2')
+					}
+				}
+		
+				if(e.hasClass('C0')){
+					e.children('i').attr('class', 'far fa-check-square');
+				}else if(e.hasClass('C2')){
+					e.children('i').attr('class', 'far fa-minus-square');
+				}else{
+					e.children('i').attr('class', 'far fa-square');
+				}
+				
+				f.each(function(){
+					mymap.removeLayer(PrioryWard1965);
+					if($(this).hasClass('C1')){
+						$(this).children('i').attr('class', 'far fa-check-square');
+					}else{
+						$(this).children('i').attr('class', 'far fa-square');
+					}
+					});
+			//Changing Layers
+				});
+			var e = $(".l4check");
+			mymap.removeLayer(L1947);
+			e.each(function(){
+				if(!$(this).hasClass('C1')){
+					mymap.removeLayer(L1947);
+				}else{
+					console.log($(this).attr('id'));
+					mymap.addLayer(L1947);
+				}
+			});
+		}
+			// click
+		var Element = $(".l3checkP");
+		Element.prev('i').click(function(){
+			$(this).nextUntil('i', '').next('div').slideToggle('500');
+			$(this).toggleClass('fa-plus fa-minus')
+			});
+		Element.click(function(){
+			$(this).toggleClass('C0').removeClass('C2');
+			$(this).siblings('div').children('div').each(function(){
+					if(Element.hasClass('C0')){
+						$(this).addClass('C1');
+					}else{
+						$(this).removeClass('C1');
+					}
+					});
+			updateIcons();
+			});
+		$(".l4check").click(function(){
+			$(this).toggleClass('C1');
+			updateIcons();
+			});
+		
+		
+		
 		
 			
  	<!-- mymap.setMaxBounds([ -->

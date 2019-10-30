@@ -26,6 +26,13 @@ html, body, #mapid {
 	pointer;
 }
 
+.l3checkP{
+	cursor:pointer;
+}
+.l4check{
+	cursor:pointer;
+}
+
 .point{
 	cursor:pointer;
 }
