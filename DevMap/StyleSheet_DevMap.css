@@ -4,3 +4,11 @@
 	width: 100%;
 }
 
+#inputID {
+  position: fixed;
+  top: 18px;
+  left: 70px;
+  z-index: 10001; 
+  /* z-index has to be high because map controls have z index of 1000 */
+  background-color: white;
+}

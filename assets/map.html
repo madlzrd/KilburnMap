@@ -108,9 +108,9 @@
 						<td width="40%"><img src="images/StreetOn.png" id="picStreet" onclick="changeLayer('streets')" height="60px"></td>
 					</tr>
 					<tr>
-						<td style="vertical-align:top">Satellite View</td>
+						<td style="vertical-align:text-top">Satellite</td>
 						<td></td>
-						<td style="vertical-align:top">Street View</td>
+						<td style="vertical-align:text-top">Street</td>
 					</tr>
 					</tbody></table>
 			</div>
@@ -170,7 +170,6 @@
 			"satellite View": satellite
 	};
 
-	// var layerControl = L.control.layers(baseMaps, null, {position: 'topleft'}).addTo(mymap);
 	</script>
 	<script>
 		// Zoom buttons
@@ -273,25 +272,23 @@
 						$(this).children('i').attr('class', 'far fa-square');
 					}
 					});
-			//Changing Layers
 				});
-			<!-- var e = $(".l4check"); -->
-			<!-- mymap.removeLayer(L1947); -->
-			<!-- e.each(function(){ -->
-				<!-- if(!$(this).hasClass('C1')){ -->
-					<!-- mymap.removeLayer(L1947); -->
-				<!-- }else{ -->
-					<!-- console.log($(this).attr('id')); -->
-					<!-- mymap.addLayer(L1947); -->
-				<!-- } -->
-			<!-- }); -->
-			e = $(".l4check");
-			if(e.eq(0).hasClass('C1')){
-				mymap.addLayer(Layer1_2);
-			}else{mymap.removeLayer(Layer1_2);}
-			if(e.eq(1).hasClass('C1')){
-				mymap.addLayer(Layer1_1);
-			}else{mymap.removeLayer(Layer1_1);}
+			
+			//Changing Layers
+			var i,j;
+			var e = $(".l3checkP");
+			//console.log(e.length);
+			for(i=0; i < e.length; i++){
+				console.log(e.eq(i).length);
+				<!-- // console.log(e.eq(i).attr('id')); -->
+				var f = e.eq(i).siblings('div').children('div');
+				for(j=0; j < f.length; j++){
+					if(f.eq(j).hasClass('C1')){
+						mymap.addLayer(LayerItem[i][j]);
+					}else{mymap.removeLayer(LayerItem[i][j]);}
+					//console.log(i.toString()+j.toString());
+				}
+			}
 		}
 			// click
 		var Element = $(".l3checkP");
@@ -338,6 +335,7 @@
         // create the sidebar instance and add it to the map
         var sidebar = L.control.sidebar('sidebar')
             .addTo(mymap);
+
     
 	</script>
 	

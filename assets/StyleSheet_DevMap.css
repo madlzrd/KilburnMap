@@ -36,3 +36,10 @@ html, body, #mapid {
 .point{
 	cursor:pointer;
 }
+
+table, tr, td {
+  /* border: 1px solid black; */
+  text-align: center;
+  font-style: italic;
+  padding: 1px;
+}
