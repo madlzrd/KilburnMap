@@ -3,13 +3,15 @@
 var popupOptions = {sticky: 'true', position: 'left', autoClose: false, closeOnClick: false}; 
 var w = 3,
 	o = 0.5,
-	fo = 0.4,
+	fo = 0.3,
 	c = "blue";
 var cpallette = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99','#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928','#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69','#fccde5','#d9d9d9','#bc80bd','#ccebc5','#ffed6f'];
+var cpallette2 = ["#a9def9","#d3f8e2","#e4c1f9","#f694c1","#77FDC9","#6BE393","#83FA88","#8DE36B","#CCFD77","#FDF97E","#E3D471","#FAE089","#E3BD71","#FDC57E","#FF895E","#E36C54","#FA7369","#E35463","#FD65A9","#C852FF","#9649E3","#8E5DFA","#5D49E3","#5961FD","#6385FF","#598EE3","#6DBDFA","#59BFE3","#6AF1FD"];
+
 function getRandomColour(){
-	var i = Math.floor(Math.random() * cpallette.length);
-	var output = cpallette[i];
-	cpallette.splice(i, 1);
+	var i = Math.floor(Math.random() * cpallette2.length);
+	var output = cpallette2[i];
+	cpallette2.splice(i, 1);
 	return output;
 }
 

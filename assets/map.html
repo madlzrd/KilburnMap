@@ -36,10 +36,11 @@
             <ul role="tablist">
 				<li><a href="javascript:zoomin()" role="tab"><i class="fas fa-plus"></i></a></li>
                 <li><a href="javascript:zoomout()" role="tab"><i class="fas fa-minus"></i></a></li>
-				<br><br><br>
-				<li><a href="#layertab" role="tab"><i class="fas fa-layer-group"></i></a></li>
-				<br><br><br>
+				<br><br>
 				<li><a href="#info" role="tab"><i class="fas fa-info-circle"></i></a></li>
+				<li><a href="#layertab" role="tab"><i class="fas fa-layer-group"></i></a></li>
+				<br>
+				<li><a href="javascript:anchorview()" role="tab"><i class="fas fa-anchor"></i></a></li>
 			</ul>
         </div>
 
@@ -50,9 +51,25 @@
                     Map of West Camden Wards 1912-2019
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-				<h2> Test </h2>
-				<p> Wassup </p>
-            </div>
+				<br><br>
+				<p style="font-size:1.25em">To get started Press the <i class="fas fa-layer-group"></i> Layers tab on the left and select the Year for which you would like to see boundaries of Western Camden Wards.</p>
+				<p style="font-size:1.25em">Press the <i class="fas fa-anchor"></i> Anchor Tab to reposition the map to the default view of Kilburn.</p>
+				<br><br>
+				<button class="button" onclick="toggleHidden('DivInfo1')" style="width:100%; border-radius:8px;"><p style="text-align: left; font-size: 1.1em">
+				How the maps were created: </p></button>
+				<div id="DivInfo1" style="display: none">
+					<h3>1912-1977</h3>
+					<p>The first two maps were derived from Ordnance Survery maps of Greater London, which you can see for yourself here on the National Library of Scotland's Website: <br>
+					<a href="https://maps.nls.uk/view/196759673">OS map 1947</a>
+					<a href="https://maps.nls.uk/view/196759670">OS map 1957</a></p>
+					<h3>1977-2002</h3>
+					<p>The boundaries between 1977-2002 were far harder to determine.<br> Historical OS maps are only available online for dates prior to around 1960, as far as I am aware.<br>
+					Therefore we resorted to using the <a href="https://madlzrd.github.io/KilburnMap/Ward%20Boundaries/1977%20report.pdf">Local Government Boundary report from 1977</a>, which detailed the delimitation of the future boundaries (at the end of the document),
+					and a map from the <a href="https://madlzrd.github.io/KilburnMap/Ward%20Boundaries/1999%20report.pdf">2002 LGBCE draft proposal</a> which showed a representaion of the boundaries as they were.</p>
+					<h3>2002-Present</h3>
+					<p>Present day boundaries were taken directly from the <a href="https://opendata.camden.gov.uk/Maps/Camden-Ward-Boundary/yqyi-6agf">Open Data Camden Website</a> and as such these boundaries are probably the most accurate of the bunch, being created by an official body.</p>
+				</div>
+			</div>
 
             <div class="sidebar-pane" id="layertab">
                 <h1 class="sidebar-header">Layers<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
@@ -218,6 +235,9 @@
 		}
 		function zoomout(){
 			mymap.zoomOut(1)
+		}
+		function anchorview(){
+			mymap.setView([51.539829, -0.195229], 15)
 		}
 		
 		// Button Show/Hide
