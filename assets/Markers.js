@@ -1,7 +1,7 @@
 
 
 var popupOptions = {sticky: 'true', position: 'left', autoClose: false, closeOnClick: false}; 
-var w = 2,
+var w = 3,
 	o = 0.5,
 	fo = 0.4,
 	c = "blue";
