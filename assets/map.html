@@ -76,7 +76,7 @@
 				<br>
 				<button class="button" onclick="toggleHidden('Div1')" style="width:100%; border-radius:8px;"><p style="text-align: left; font-size: 1.1em">
 				Wards of West Camden 1912-present</p></button>
-				<div id="Div1" style="display: none;font-size: 1.25em;cursor:'pointer';">
+				<div id="Div1" style="font-size: 1.25em;cursor:'pointer';">
 				<br>			
 					<div id="Div2">
 						<i class="fa fa-plus point"></i><div id="Div2_0" class="l3checkP" style="display:inline;margin-left:1em;"><i class="far fa-square"></i>
@@ -118,19 +118,19 @@
 						<i class="fa fa-plus point"></i><div id="Div4_0" class="l3checkP" style="display:inline;margin-left:1em;"><i class="far fa-square"></i>
 						1977-2002 - Camden Borough</div>
 						<div style="display:none; margin-left:3em">
-							<div id="Div4_1" class="l4check" style="display:inline"><i class="far fa-square"></i>
+							<div id="Div4_1" class="l4check C1" style="display:inline"><i class="far fa-square"></i>
 							Kilburn Ward</div>
 							<br>
-							<div id="Div4_2" class="l4check" style="display:inline"><i class="far fa-square"></i>
+							<div id="Div4_2" class="l4check C1" style="display:inline"><i class="far fa-square"></i>
 							West End Ward</div>
 							<br>
-							<div id="Div4_3" class="l4check" style="display:inline"><i class="far fa-square"></i>
+							<div id="Div4_3" class="l4check C1" style="display:inline"><i class="far fa-square"></i>
 							Fortune Green Ward</div>
 							<br>
-							<div id="Div4_4" class="l4check" style="display:inline"><i class="far fa-square"></i>
+							<div id="Div4_4" class="l4check C1" style="display:inline"><i class="far fa-square"></i>
 							Priory Ward</div>
 							<br>
-							<div id="Div4_5" class="l4check" style="display:inline"><i class="far fa-square"></i>
+							<div id="Div4_5" class="l4check C1" style="display:inline"><i class="far fa-square"></i>
 							Swiss Cottage Ward</div>
 						</div>
 					</div>
@@ -280,22 +280,7 @@
 			});
 		} 
 		
-		//Test jquery
-		$('#Div7').children('i').click(function(){
-			$(this).nextUntil('i', '').next('div').slideToggle('500');
-			$(this).toggleClass('fa-plus fa-minus')
-			});
-		//jquery toggle tick
-		$('#Div7').children('div').first().click(function(){
-			var parent = $(this).children('i');
-			parent.toggleClass('fa-square fa-check-square');
-			var parClass = parent.attr('class');
-			$('#Div7').children('div').not($(this)).find('i').each(function(){
-					$(this).attr('class',parClass);
-				});
-			
-			
-			});
+	
 		// jquery using class
 			// changing icons
 		function updateIcons(){
@@ -350,6 +335,8 @@
 				}
 			}
 		}
+		
+		
 			// click
 		var Element = $(".l3checkP");
 		Element.prev('i').click(function(event){
@@ -378,8 +365,6 @@
 			});
 		
 		
-		
-		
 			
  	<!-- mymap.setMaxBounds([ -->
 		<!-- [51.550552, -0.218611], -->
@@ -400,6 +385,11 @@
 	</script>
 	
 	<script src="Markers.js"></script>
+	
+	<script>$(document).ready(function(){
+					updateIcons()
+				});
+	</script>
 
 	</body>
 </html>
